@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Evaluacion de Aptitud Deportiva</title>
+  <link rel="stylesheet" href="proyectojs.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastisy.min.css">
+  <script defer src="clase1.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Evaluacion de Aptitud Deportiva</h1>
+  
+    <div class="form-group mt-3">
+      <label for="nombre">Nombre del paciente:</label>
+      <input type="text" id="nombre" class="form-control" placeholder="Ingrese el nombre del paciente">
+    </div>
+    <div class="form-group">
+      <label for="presionArterial">Presion Arterial:</label>
+      <input type="number" id="presionArterial" class="form-control" placeholder="Ingrese la presión arterial">
+    </div>
+    <div class="form-group">
+      <label for="frecuenciaCardiaca">Frecuencia Cardiaca:</label>
+      <input type="number" id="frecuenciaCardiaca" class="form-control" placeholder="Ingrese la frecuencia cardíaca">
+    </div>
+    <button onclick="evaluarPaciente()" class="btn btn-primary">Evaluar Paciente</button>
+    <button onclick="verPromedio()" class="btn btn-secondary">Ver Promedio</button>
+    <button onclick="resetearDatos()" class="btn btn-danger">Resetear Datos</button>
+
+    <div class="mt-5">
+      <h2>Pacientes Evaluados</h2>
+      <div class="form-group">
+        <label for="etapaFiltrada">Filtrar por Etapa:</label>
+        <select id="etapaFiltrada" class="form-control" onchange="filtrarPorEtapa()">
+          <option value="todas">Todas</option>
+          <option value="reposo">Reposo</option>
+          <option value="calentamiento">Calentamiento</option>
+          <option value="etapa1">Etapa 1</option>
+          <option value="etapa2">Etapa 2</option>
+          <option value="etapa3">Etapa 3</option>
+          <option value="recuperacionInmediata">Recuperación Inmediata</option>
+          <option value="recuperacion3Minutos">Recuperación 3 Minutos</option>
+        </select>
+      </div>
+      <ul id="listaPacientes" class="list-group"></ul>
+    </div>
+  </div>
+  <div id="datosRemotos" class="mt-3"></div>
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify=js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

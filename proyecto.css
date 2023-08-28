@@ -1,0 +1,148 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-color: crimson;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el listado de pacientes evaluados */
+  #listaPacientes {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .list-group-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease;
+  }
+  
+  .list-group-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Animación de aparición */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Estilos para los botones */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #565e64;
+    border-color: #565e64;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+  }
+  
+  /* Estilos para el formulario */
+  .form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 5px #007bff;
+  }
+  
+  /* Estilos para el select de filtrado */
+  #etapaFiltrada {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  #etapaFiltrada:focus {
+    border-color: #007bff;
+  }
+  
+  /* Estilos para las animaciones de aptitud */
+  @keyframes aptoPulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .apto {
+    color: #28a745;
+    font-weight: bold;
+    animation: aptoPulse 1s infinite;
+  }
+  
+  .no-apto {
+    color: #dc3545;
+    font-weight: bold;
+    animation: aptoPulse 1s infinite;
+  }
