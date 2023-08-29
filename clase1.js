@@ -27,7 +27,7 @@ class Nodo {
     recuperacion3Minutos: { minPA: 80, maxPA: 120, minFC: 60, maxFC: 100 },
   };
   
-  const pacientesEvaluados = [];
+  const pacientesEvaluados = [JSON.parse(localStorage.getItem("pacientesEvaluados")) || []];
   
   let paciente = {
     nombre: "",
@@ -58,33 +58,6 @@ class Nodo {
   function guardarPacientesEnLocalStorage() {
     localStorage.setItem("pacientesEvaluados", JSON.stringify(pacientesEvaluados));
   }
-  
-  cargarPacientesDesdeLocalStorage()
-    .then((pacientesCargados) => {
-      pacientesEvaluados.push(...pacientesCargados);
-      actualizarListaPacientes();
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  
-  // Función para cargar los pacientes evaluados desde el Local Storage
-  function cargarPacientesDesdeLocalStorage() {
-    return new Promise((resolve, reject) => {
-      const pacientesGuardados = localStorage.getItem("pacientesEvaluados");
-      if (pacientesGuardados) {
-        const pacientesParseados = JSON.parse(pacientesGuardados);
-        resolve(pacientesParseados);
-      } else {
-        reject("No hay pacientes guardados en el localStorage.");
-      }
-    });
-  }
-  
-  localStorage.clear()
-  
-  // Llama a la función de cargar al inicio para cargar los datos existentes
-  cargarPacientesDesdeLocalStorage();
   
   function evaluarPaciente() {
     var nombre = document.getElementById("nombre").value;
@@ -124,9 +97,12 @@ class Nodo {
   
       }).showToast();
       paciente.etapaActual = 0;
-      pacientesEvaluados.push({ nombre: paciente.nombre.etapasAprobadas.slice() });
-      paciente.etapasAprobadas = [,]
-    }
+      console.log(paciente.etapasAprobadas)
+      pacientesEvaluados.push({
+        nombre: paciente.nombre,
+        etapasAprobadas: paciente.etapasAprobadas,
+        fecha : 
+      })
     
     actualizarListaPacientes();
     guardarPacientesEnLocalStorage(pacientesEvaluados)
@@ -218,22 +194,29 @@ class Nodo {
   
   // Función para cargar datos remotos utilizando Fetch
   function cargarDatosRemotos() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => {
-        if (!response.ok) {
+    fetch("https://jsonplaceholder.typicode.com/posts");
+      TouchEvent(response => {
+        if (!response.ok {
           throw new Error("No se pudieron cargar los datos remotos.");
-        }
+        })
         return response.json();
       })
-      .then(data => {
-        // Mostrar los datos en el elemento HTML
-        datosRemotosElement.innerHTML = JSON.stringify(data, null, 2);
+      TouchEvent(data => {
+        data.forEach(entry => {
+          const tarjeta = document.createElement("div");
+          tarjeta.classList.add("tarjeta");
+          tarjeta.innerHTML =
+            <><h2>ID: ${entry.id}</h2><h3>${entry.title}</h3><p>${entry.body}</p></>
+            ;
+          datosRemotosElement.appendChild(tarjeta);
+        });
       })
       .catch(error => {
         console.error(error);
-        datosRemotosElement.innerHTML = "Error al cargar los datos remotos.";
+        datosRemotosElement.textContent = "Error al cargar los datos remotos";
       });
   }
+  
   
   // Llamar a la función para cargar los datos remotos
   cargarDatosRemotos();
