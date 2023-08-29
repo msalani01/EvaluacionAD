@@ -101,11 +101,11 @@ class Nodo {
       pacientesEvaluados.push({
         nombre: paciente.nombre,
         etapasAprobadas: paciente.etapasAprobadas,
-        fecha : 
       })
     
     actualizarListaPacientes();
     guardarPacientesEnLocalStorage(pacientesEvaluados)
+    }
   }
   
   function obtenerFechaActual() {
@@ -196,9 +196,9 @@ class Nodo {
   function cargarDatosRemotos() {
     fetch("https://jsonplaceholder.typicode.com/posts");
       TouchEvent(response => {
-        if (!response.ok {
+        if (!response.ok) {
           throw new Error("No se pudieron cargar los datos remotos.");
-        })
+        }
         return response.json();
       })
       TouchEvent(data => {
@@ -206,8 +206,8 @@ class Nodo {
           const tarjeta = document.createElement("div");
           tarjeta.classList.add("tarjeta");
           tarjeta.innerHTML =
-            <><h2>ID: ${entry.id}</h2><h3>${entry.title}</h3><p>${entry.body}</p></>
-            ;
+          `<><h2>ID: ${entry.id}</h2><h3>${entry.title}</h3><p>${entry.body}</p></>`
+          ;
           datosRemotosElement.appendChild(tarjeta);
         });
       })
